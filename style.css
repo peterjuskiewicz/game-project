@@ -1,0 +1,141 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Audiowide', cursive;
+}
+/*style common elements*/
+
+.main{
+    max-width: 1000px;
+    border-radius: 5%;
+    margin: 50px auto;
+}
+
+.container1{
+    display: flex;
+    max-width: 1000px;
+    background-color: #a6a6a6;
+
+}
+
+.game-name{
+    width: 50%;
+    height: 48px;
+    line-height: 48px;
+    padding: 1px;
+    margin: 1px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+}
+.navigation{
+    width: 50%;
+    display: flex;
+    text-align: center;
+}
+.Login,
+.About,
+.Game,
+.Highscores
+{
+    height: 48px;
+    line-height: 48px;
+    width: 25%;
+    border-radius: 5%;
+    background-color: white;
+    margin: 1px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    text-transform: uppercase;
+
+}
+.Login:hover,
+.About:hover,
+.Game:hover,
+.Highscores:hover{
+    background-color: #808080;
+    color:white;
+}
+
+.container2{
+    display: flex;
+    max-width: 1000px;
+    min-height: 500px;
+    background-color: #f2f2f2;
+}
+
+.container3{
+    display: flex;
+    max-width: 1000px;
+    margin: 0, auto;
+    height: 33px;
+    background-color: #a6a6a6;
+}
+.copyrights{
+    color: #ffffff;
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    margin: 1px;
+    font-size: 13px;
+}
+.social-media{
+    display: flex;
+    width: 10%;
+    height: 30px;
+    margin: 1px
+}
+.github,
+.twitter{
+    width: 50%;
+    height: 28px;
+    margin: 1px;
+    color: white;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 1.7em;
+}
+
+/*Login Page*/
+
+.sign-in,
+.sign-up{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 390px;
+    margin: 5px;
+
+}
+
+.sign-in-text{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+.name-input,
+.email-input,
+.log-in-button,
+.password-input,
+.repeat-password-input,
+.sign-up-button{
+    width: 50%;
+    margin: 5px auto;
+    padding: 4px;
+
+}
+
+/*Style highscores table*/
+
+.highscore{
+    width: 60%;
+    margin: 20px auto;
+}
+
+/*Style description page*/
+.description{
+    width: 60%;
+    margin: 20px auto;
+    text-align: center;
+}
