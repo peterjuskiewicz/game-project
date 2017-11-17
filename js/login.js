@@ -25,14 +25,24 @@ function login() {
       const repeatPasswordSignUp = document.getElementById(
         "repeat-password-sign-up"
       ).value;
-      if (
-        validateEmail(emailSignUp) &&
-        passwordSignUp === repeatPasswordSignUp
-      ) {
+      const messageSignUp = document.getElementById("sign-up-message");
+      // Send error messages
+      if(JSON.parse(localStorage.getItem(emailSignUp)) != null){
+        messageSignUp.innerHTML = "Such e-mail adress is already register.";
+      }
+      else if(!validateEmail(emailSignUp)){
+        messageSignUp.innerHTML = "E-mail address is incorrect";
+      }
+
+      else if (passwordSignUp !== repeatPasswordSignUp) {
+        messageSignUp.innerHTML = "Password doesn't match";
+      }
+      else{
         localStorage.setItem(
-          emailSignUp,
-          JSON.stringify(new User(nameSignUp, emailSignUp, passwordSignUp))
-        );
+        emailSignUp,
+        JSON.stringify(new User(nameSignUp, emailSignUp, passwordSignUp))
+        )
+        messageSignUp.innerHTML = "Registration succesful";
       }
     });
 
@@ -41,18 +51,24 @@ function login() {
     event.preventDefault();
     const emailSignIn = document.getElementById("email-sign-in").value;
     const passwordSignIn = document.getElementById("password-sign-in").value;
+    const messageSignIn = document.getElementById("sign-in-message");
     // Receive JSON object
-    const retrievedObject = JSON.parse(localStorage.getItem(emailSignIn));
-    // Check if password matches
-    if (passwordSignIn === retrievedObject.password) {
-      console.log(retrievedObject.password);
-      window.checkIfLogIn = true;
-      changeElement();
-    } else {
-      console.log(
-        passwordSignIn + " is differente than " + retrievedObject.password
-      );
+    if(JSON.parse(localStorage.getItem(emailSignIn)) !== null){
+      const retrievedObject = JSON.parse(localStorage.getItem(emailSignIn));
+      // Check if password matches
+      if (passwordSignIn === retrievedObject.password) {
+        console.log(retrievedObject.password);
+        window.checkIfLogIn = true;
+        changeElement();
+      }
+      else {
+        messageSignIn.innerHTML = "Password or email incorrect";
+      }
     }
+    else{
+      messageSignIn.innerHTML = "E-mail not registered";
+    }
+
   });
 }
 
