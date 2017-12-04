@@ -119,11 +119,16 @@
 .log-in-button,
 .password-input,
 .repeat-password-input,
-.sign-up-button{
+.sign-up-button,
+.registration-message,
+.surname-input{
     width: 50%;
     margin: 5px auto;
     padding: 4px;
 
+}
+
+.registration-message{
 }
 
 /*Style highscores table*/
