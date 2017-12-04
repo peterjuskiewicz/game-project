@@ -4,9 +4,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 // create User class
 class User {
-  constructor(userName, userEmail, userPassword) {
-    // starting position of the player
+  constructor(userName, userSurname, userEmail, userPassword) {
+
     this.name = userName;
+    this.surname = userSurname;
     this.email = userEmail;
     this.password = userPassword;
   }
@@ -20,6 +21,7 @@ function login() {
     .addEventListener("click", function(event) {
       event.preventDefault();
       const nameSignUp = document.getElementById("name-sign-up").value;
+      const surnameSignUp = document.getElementById("surname-sign-up").value;
       const emailSignUp = document.getElementById("email-sign-up").value;
       const passwordSignUp = document.getElementById("password-sign-up").value;
       const repeatPasswordSignUp = document.getElementById(
@@ -40,7 +42,7 @@ function login() {
       else{
         localStorage.setItem(
         emailSignUp,
-        JSON.stringify(new User(nameSignUp, emailSignUp, passwordSignUp))
+        JSON.stringify(new User(nameSignUp, surnameSignUp, emailSignUp, passwordSignUp))
         )
         messageSignUp.innerHTML = "Registration succesful";
       }
@@ -58,8 +60,11 @@ function login() {
       // Check if password matches
       if (passwordSignIn === retrievedObject.password) {
         console.log(retrievedObject.password);
+        localStorage.loggedUser = retrievedObject.email;
         window.checkIfLogIn = true;
+
         changeElement();
+        window.location.href = "index.php";
       }
       else {
         messageSignIn.innerHTML = "Password or email incorrect";
@@ -72,16 +77,6 @@ function login() {
   });
 }
 
-// change log in button to log off button
-const changeElement = () => {
-  const loginNav = document.getElementById("login-nav");
-  if (window.checkIfLogIn) {
-    debugger;
-    window.location.href = "index.php";
-    loginNav.innerHTML = "Log out";
-    loginNav.href = "#";
-  }
-};
 
 // regex to check correctness of the email
 

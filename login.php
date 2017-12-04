@@ -28,18 +28,21 @@
                 <input required type="password" name="Password" placeholder="Password" id="password-sign-in"
                 class="email-input">
                 <button id="login" class="log-in-button">Log in</button>
+                <p class="registration-message" id="sign-in-message"></p>
             </form>
             <form class="sign-up">
                 <h2 class="sign-in-text">Sign Up</h2>
                 <input required type="text" name="Name" placeholder="Name" id="name-sign-up" class="name-input">
+                <input required type="text" name="Surname" placeholder="Surname" id="surname-sign-up" class="surname-input">
                 <input required type="email" name="Email" placeholder="Email" id="email-sign-up" class="email-input">
                 <input required type="password" name="Password" placeholder="Password" id="password-sign-up" class="password-input">
                 <input required type="password" name="Repeat-password" placeholder="Repeat Password" id="repeat-password-sign-up" class="repeat-password-input">
                 <button id="register" class="sign-up-button">Sign up</button>
+                <p class="registration-message" id="sign-up-message"></p>
             </form>
         </div>
 
 <?php
     //Output the footer
-    outputFooter();
+    outputFooter('loginPage');
     ?>

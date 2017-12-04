@@ -29,5 +29,5 @@
         </div>
 <?php
     //Output the footer
-    outputFooter();
+    outputFooter('null');
 ?>

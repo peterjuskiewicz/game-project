@@ -15,7 +15,7 @@ function outputHeader($title){
 }
 
 //Outputs closing body tag and closing HTML tag
-function outputFooter(){
+function outputFooter($scriptNeeded){
     echo '<div class="container3">';
     echo '<h3 class="copyrights">©Copyrights Piotr Juskiewicz Middlesex University</h3>';
     echo '<div class="social-media">';
@@ -24,8 +24,14 @@ function outputFooter(){
     echo '</div>';
     echo '</div>';
     echo '</div>';
-    echo '<script type="text/javascript" src="js/login.js"></script>';
+    if($scriptNeeded == 'loginPage'){
+        echo '<script type="text/javascript" src="js/login.js"></script>';
+    }
+    if($scriptNeeded == 'gamePage'){
+
+    }
+    echo '<script type="text/javascript" src="js/logged.js"></script>';
+    echo '<script type="text/javascript" src="js/logout.js"></script>';
     echo '</body>';
     echo '</html>';
 }
-
