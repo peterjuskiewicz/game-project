@@ -72,12 +72,12 @@ window.onload = function() {
     // define enemy class
 
     class Enemy {
-      constructor(argX, argY) {
+      constructor(argX, argY, speed) {
         // starting position of the enemy
         this.x = argX;
         this.y = argY;
         this.movingRight = true;
-        this.speed = 2;
+        this.speed = speed;
       }
 
       draw() {
@@ -104,11 +104,12 @@ window.onload = function() {
     const player1 = new Player(60, 450, user.name);
 
     let enemyY = 50;
+    let speed = 2;
 
     // Array of 20 enemies
 
     let enemyArray = range(20).map((el, key) => {
-      return new Enemy(10 + key * 30, enemyY);
+      return new Enemy(10 + key * 30, enemyY, speed);
     });
 
     // Rocket array
@@ -176,9 +177,9 @@ window.onload = function() {
 
     const nextLevel = () => {
       if (enemyArray.length === 0) {
-        Enemy.speed *= 2;
+        speed *= 2;
         enemyArray = range(20).map((el, key) => {
-          return new Enemy(10 + key * 30, enemyY);
+          return new Enemy(10 + key * 30, enemyY, speed);
         });
       }
     };
