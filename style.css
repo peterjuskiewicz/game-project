@@ -60,6 +60,7 @@
 
 .container2{
     display: flex;
+    justify-content: center;
     max-width: 1000px;
     min-height: 500px;
     background-color: #f2f2f2;

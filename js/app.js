@@ -16,10 +16,10 @@ window.onload = function() {
   const playTheGame = () => {
     if (sessionStorage.loggedUser == undefined) {
       context.font = "40px Audiowide";
-      context.strokeText("Login before playing", 300, 200);
+      context.strokeText("Login before playing", 200, 200);
     } else {
       context.font = "40px Audiowide";
-      context.strokeText("Start game", 400, 200);
+      context.strokeText("Start game", 300, 200);
       if (x > 400 && x < 600 && y > 200 && y < 400) {
         startTheGame();
       }
