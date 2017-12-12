@@ -28,10 +28,14 @@ function outputFooter($scriptNeeded){
         echo '<script type="text/javascript" src="js/login.js"></script>';
     }
     if($scriptNeeded == 'gamePage'){
+      echo '<script type="text/javascript" src="js/app.js"></script>';
+
+    }
+    if($scriptNeeded == 'highScore'){
+      echo '<script type="text/javascript" src="js/highscores.js"></script>';
 
     }
     echo '<script type="text/javascript" src="js/logged.js"></script>';
-    echo '<script type="text/javascript" src="js/logout.js"></script>';
     echo '</body>';
     echo '</html>';
 }

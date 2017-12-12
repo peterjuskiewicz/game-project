@@ -5,16 +5,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // create User class
 class User {
   constructor(userName, userSurname, userEmail, userPassword) {
-
     this.name = userName;
     this.surname = userSurname;
     this.email = userEmail;
     this.password = userPassword;
+    this.highscore = 0;
   }
 }
 
 function login() {
-  window.checkIfLogIn = false;
   // Register and save data in JSON in HTML Local Storage
   document
     .getElementById("register")
@@ -29,21 +28,19 @@ function login() {
       ).value;
       const messageSignUp = document.getElementById("sign-up-message");
       // Send error messages
-      if(JSON.parse(localStorage.getItem(emailSignUp)) != null){
+      if (JSON.parse(localStorage.getItem(emailSignUp)) != null) {
         messageSignUp.innerHTML = "Such e-mail adress is already register.";
-      }
-      else if(!validateEmail(emailSignUp)){
+      } else if (!validateEmail(emailSignUp)) {
         messageSignUp.innerHTML = "E-mail address is incorrect";
-      }
-
-      else if (passwordSignUp !== repeatPasswordSignUp) {
+      } else if (passwordSignUp !== repeatPasswordSignUp) {
         messageSignUp.innerHTML = "Password doesn't match";
-      }
-      else{
+      } else {
         localStorage.setItem(
-        emailSignUp,
-        JSON.stringify(new User(nameSignUp, surnameSignUp, emailSignUp, passwordSignUp))
-        )
+          emailSignUp,
+          JSON.stringify(
+            new User(nameSignUp, surnameSignUp, emailSignUp, passwordSignUp)
+          )
+        );
         messageSignUp.innerHTML = "Registration succesful";
       }
     });
@@ -55,28 +52,23 @@ function login() {
     const passwordSignIn = document.getElementById("password-sign-in").value;
     const messageSignIn = document.getElementById("sign-in-message");
     // Receive JSON object
-    if(JSON.parse(localStorage.getItem(emailSignIn)) !== null){
+    if (JSON.parse(localStorage.getItem(emailSignIn)) !== null) {
       const retrievedObject = JSON.parse(localStorage.getItem(emailSignIn));
       // Check if password matches
       if (passwordSignIn === retrievedObject.password) {
         console.log(retrievedObject.password);
-        localStorage.loggedUser = retrievedObject.email;
-        window.checkIfLogIn = true;
+        sessionStorage.loggedUser = retrievedObject.email;
 
         changeElement();
         window.location.href = "index.php";
-      }
-      else {
+      } else {
         messageSignIn.innerHTML = "Password or email incorrect";
       }
-    }
-    else{
+    } else {
       messageSignIn.innerHTML = "E-mail not registered";
     }
-
   });
 }
-
 
 // regex to check correctness of the email
 

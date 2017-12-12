@@ -16,7 +16,7 @@
             <a href="about.php" class="About">About</a>
             <a href="index.php" class="Game">Game</a>
             <a href="highscore.php" class="Highscores">Highscores</a>
-            <a href="login.php" class="Login">Log-in</a>
+            <a href="login.php" id="login-nav" class="Login">Log-in</a>
         </div>
     </div>
         <!-- Description of the game -->

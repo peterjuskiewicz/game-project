@@ -15,14 +15,14 @@
             <a href="about.php" class="About">About</a>
             <a href="index.php" class="Game">Game</a>
             <a href="highscore.php" class="Highscores">Highscores</a>
-            <a href="login.php" class="Login">Log-in</a>
+            <a href="login.php" id="login-nav" class="Login">Log-in</a>
         </div>
     </div>
         <!-- Canvas element where the game will happen -->
         <div class="container2">
-            <canvas width="1000" height="500"></canvas>
+            <canvas width="800" height="500" id="canvas"></canvas>
         </div>
 <?php
     //Output the footer
-    outputFooter('null');
+    outputFooter('gamePage');
 ?>
